@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './css/style.css';
+import Token from './Token';
 
 const TempApp = () => {
     const [city, setCity] = useState(null);
@@ -7,7 +8,7 @@ const TempApp = () => {
 
     useEffect(() => {
         const fetchApi = async () => {
-            const url = `http://api.openweathermap.org/data/2.5/weather?q=${search}&units=metric&appid=a61487d7ad71d409e6100ed013f2338e`
+            const url = `http://api.openweathermap.org/data/2.5/weather?q=${search}&units=metric&appid=${Token}`
             const response = await fetch(url);
             const resJson = await response.json()
             setCity(resJson.main)
